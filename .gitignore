@@ -8,3 +8,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+.classpath
+.settings/org.eclipse.core.resources.prefs
+*.prefs
+bin/
