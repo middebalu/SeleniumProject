@@ -1,9 +1,11 @@
-package Proejct.Selenium;
+package com.myproject.selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-public class HelloProgram extends Base {
+import com.myproject.selenium.Base;
+
+public class AllDriverTest extends Base {
 	WebDriver driver;
 	@Test
 	public void fireFoxDriver() {

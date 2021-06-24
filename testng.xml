@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="Proejct.Selenium.HelloProgram"/>
+      <class name="Proejct.Selenium.AllDriverTest"/>
      
     </classes>
   </test> <!-- Test -->
