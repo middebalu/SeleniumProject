@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.myproject.selenium.Base;
+import com.myproject.selenium.utils.Base;
 
 public class FindByName extends Base {
 

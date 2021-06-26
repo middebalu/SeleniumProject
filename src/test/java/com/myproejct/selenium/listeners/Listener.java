@@ -1,16 +1,18 @@
 package com.myproejct.selenium.listeners;
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.myproject.selenium.Base;
-import com.myproject.selenium.ExtentReporterNG;
+import com.myproject.selenium.utils.Base;
+import com.myproject.selenium.utils.ExtentReporterNG;
+
 
 
 public class Listener extends Base implements ITestListener  {
@@ -24,9 +26,12 @@ public class Listener extends Base implements ITestListener  {
 	
 	// Creation thread local for extent test to avoid results overwrite during parallel execution
 	ThreadLocal<ExtentTest> extentTest =new ThreadLocal<ExtentTest>();
-
+	Logger log;
+	
 	public void onTestStart(ITestResult result) {
 		
+		log= LogManager.getLogger(result.getClass()+result.getMethod().getMethodName());
+		log.info("Tet started");
 		// Assign method name to extent test
 		test= extent.createTest(result.getMethod().getMethodName());
 		
@@ -38,9 +43,12 @@ public class Listener extends Base implements ITestListener  {
 		
 		// Get extent test from thread local and add log as test case passed
 		extentTest.get().log(Status.PASS, "Test Passed");
+		
+		log.info("Test Passed");
 	}
 
 	public void onTestFailure(ITestResult result) {
+		log.info("Test Failed");
 		extentTest.get().fail(result.getThrowable());
 		WebDriver driver =null;
 		String testMethodName =result.getMethod().getMethodName();
@@ -52,7 +60,7 @@ public class Listener extends Base implements ITestListener  {
 			
 		}
 		try {
-			extentTest.get().addScreenCaptureFromPath(takeScreentShot(testMethodName,driver), result.getMethod().getMethodName());
+			extentTest.get().addScreenCaptureFromPath(takeScreentShot(driver,testMethodName), result.getMethod().getMethodName());
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

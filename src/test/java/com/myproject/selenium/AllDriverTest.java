@@ -3,7 +3,7 @@ package com.myproject.selenium;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import com.myproject.selenium.Base;
+import com.myproject.selenium.utils.Base;
 
 public class AllDriverTest extends Base {
 	WebDriver driver;

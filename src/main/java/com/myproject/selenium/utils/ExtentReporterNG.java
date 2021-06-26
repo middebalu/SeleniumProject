@@ -1,4 +1,4 @@
-package com.myproject.selenium;
+package com.myproject.selenium.utils;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -15,7 +15,7 @@ public class ExtentReporterNG {
 		reporter.config().setDocumentTitle("Test Results");
 		extent =new ExtentReports();
 		extent.attachReporter(reporter);
-		extent.setSystemInfo("Automatation Test Engineer", "Rahul Shetty");
+		extent.setSystemInfo("Automatation Test Engineer", "Balaji Kumar Midde");
 		return extent;
 		
 	}
