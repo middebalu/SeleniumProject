@@ -38,6 +38,7 @@ public class FindByName extends Base {
 			softAssert.assertTrue(e.isSelected(), "expected radio button not selected");
 		}
 		//alert.click(); // to accept multicity alert
+		alert.click();
 		driver.findElement(By.name("ctl00$mainContent$rbtnl_Trip")).click();
 		
 		softAssert.assertTrue(driver.findElement(By.name("ctl00$mainContent$rbtnl_Trip")).isSelected(),

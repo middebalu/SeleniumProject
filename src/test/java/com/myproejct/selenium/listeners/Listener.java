@@ -37,7 +37,7 @@ public class Listener extends Base implements ITestListener {
 
 		log = LogManager.getLogger(result.getInstanceName() + " " + result.getMethod().getMethodName());
 		log.fatal("Tet started");
-		log.fatal("test started");
+		log.info("test started");
 	}
 
 	public void onTestSuccess(ITestResult result) {

@@ -1,6 +1,8 @@
 package com.myproject.selenium.locators.id;
 
 import org.testng.annotations.Test;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 
 import com.myproject.selenium.utils.Base;
+
 
 public class FindByID extends Base {
 
@@ -26,6 +29,7 @@ public class FindByID extends Base {
 	@FindBy(id = "MultiCityModelAlert")
 	private WebElement alert;
 
+	 public static Logger log =LogManager.getLogger(FindByID.class.getName());
 	@Test
 	public void findByID() {
 		SoftAssert softAssert = new SoftAssert();
@@ -35,8 +39,10 @@ public class FindByID extends Base {
 		
 		oneWay.click();
 		softAssert.assertTrue(oneWay.isSelected(), "expected radio button not selected");
-		
+		log.info("afterclick info inside method");
+		log.error("afterclick error inside method");
 		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_2")).click();
+		alert.click();
 		softAssert.assertTrue(driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_2")).isSelected(),
 				"expected radio button not selected");
 		
