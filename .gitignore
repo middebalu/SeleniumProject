@@ -14,5 +14,4 @@ bin/
 .project
 test-output/
 /bin/
-logs/
 reports/
